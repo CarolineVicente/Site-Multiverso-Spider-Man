@@ -1,6 +1,6 @@
 function handleMouseEnter() {
   this.classList.add("s-card--hovered");
-  document.body.id = "${this.id}-hovered";
+  document.body.id = `${this.id}-hovered`;
 }
 
 function handleMouseLeave() {
@@ -9,7 +9,8 @@ function handleMouseLeave() {
 }
 
 function addEventListenersToCards() {
-  const cardElements = document.getElementsByName("s-card");
+  const cardElements = document.getElementsByClassName("s-card");
+
   for (let index = 0; index < cardElements.length; index++) {
     const card = cardElements[index];
     card.addEventListener("mouseenter", handleMouseEnter);
@@ -17,8 +18,4 @@ function addEventListenersToCards() {
   }
 }
 
-document.addEventListener(
-  "DOMContententLoaded",
-  addEventListenersToCards,
-  false
-);
+document.addEventListener("DOMContentLoaded", addEventListenersToCards, false);
